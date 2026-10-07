@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Swapnil Sabbir — Creator, Photographer, Editor">
+  <title>Swapnil Sabbir | Personal Portfolio</title>
+
+  <style>
+    :root{
+      --bg:#080b0f;
+      --bg2:#0e1319;
+      --card:#111820;
+      --gold:#d8b45a;
+      --gold2:#f1d58a;
+      --text:#f5f5f5;
+      --muted:#a9b0b8;
+      --line:rgba(216,180,90,.22);
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .container{width:min(92%,var(--max));margin:auto}
+
+    /* NAVBAR */
+    header{
+      position:fixed;top:0;left:0;width:100%;z-index:1000;
+      background:rgba(8,11,15,.82);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    nav{
+      min-height:72px;display:flex;align-items:center;
+      justify-content:space-between;gap:20px;
+    }
+    .logo{
+      font-size:1.2rem;font-weight:800;letter-spacing:.4px;
+      color:#fff;
+    }
+    .logo span{color:var(--gold)}
+    .nav-links{display:flex;gap:24px;list-style:none}
+    .nav-links a{
+      color:#dfe3e8;font-size:.9rem;transition:.25s;
+    }
+    .nav-links a:hover{color:var(--gold)}
+    .menu{
+      display:none;background:none;border:1px solid var(--line);
+      color:var(--gold);border-radius:8px;padding:8px 10px;font-size:20px;
+    }
+
+    /* HERO */
+    .hero{
+      min-height:100vh;display:grid;place-items:center;
+      padding:120px 0 70px;
+      position:relative;overflow:hidden;
+      background:
+        radial-gradient(circle at 75% 35%,rgba(216,180,90,.13),transparent 28%),
+        linear-gradient(135deg,#080b0f 25%,#111820 100%);
+    }
+    .hero-grid{
+      display:grid;grid-template-columns:1.05fr .95fr;
+      gap:55px;align-items:center;
+    }
+    .eyebrow{
+      color:var(--gold);text-transform:uppercase;letter-spacing:3px;
+      font-size:.8rem;margin-bottom:16px;
+    }
+    h1{
+      font-size:clamp(3rem,7vw,6rem);line-height:.98;
+      letter-spacing:-3px;margin-bottom:20px;
+    }
+    h1 span{color:var(--gold)}
+    .hero p{color:var(--muted);max-width:580px;font-size:1.05rem}
+    .hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 20px;border-radius:999px;border:1px solid var(--gold);
+      font-weight:700;transition:.25s;
+    }
+    .btn.primary{background:var(--gold);color:#0a0c0f}
+    .btn:hover{transform:translateY(-2px)}
+    .socials{display:flex;gap:10px}
+    .socials a{
+      width:40px;height:40px;border:1px solid rgba(255,255,255,.14);
+      border-radius:50%;display:grid;place-items:center;color:#ddd;
+    }
+    .socials a:hover{border-color:var(--gold);color:var(--gold)}
+
+    .hero-photo{
+      min-height:560px;border-radius:28px;overflow:hidden;
+      border:1px solid var(--line);position:relative;
+      background:
+        linear-gradient(145deg,rgba(216,180,90,.16),rgba(0,0,0,.15)),
+        url("https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=85")
+        center/cover;
+      box-shadow:0 30px 80px rgba(0,0,0,.35);
+    }
+    .photo-label{
+      position:absolute;bottom:18px;left:18px;right:18px;
+      padding:16px;border-radius:16px;background:rgba(8,11,15,.72);
+      backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.1);
+    }
+    .photo-label strong{display:block;color:var(--gold2);font-size:1.1rem}
+    .photo-label small{color:#c4c8ce}
+
+    /* GENERAL */
+    section{padding:100px 0}
+    .section-head{margin-bottom:45px}
+    .kicker{color:var(--gold);font-size:.8rem;text-transform:uppercase;letter-spacing:3px}
+    .section-head h2{font-size:clamp(2rem,5vw,3.4rem);margin:8px 0}
+    .section-head p{color:var(--muted);max-width:650px}
+    .gold-line{width:55px;height:3px;background:var(--gold);margin:15px 0}
+
+    /* ABOUT */
+    .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:center}
+    .about-img{
+      min-height:430px;border-radius:24px;
+      background:url("https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=85")
+      center/cover;border:1px solid var(--line);
+    }
+    .about-copy p{color:var(--muted);margin-bottom:16px}
+    .facts{
+      display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:25px
+    }
+    .fact{
+      padding:16px;border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;background:rgba(255,255,255,.025)
+    }
+    .fact b{display:block;color:var(--gold);font-size:.82rem;margin-bottom:4px}
+    .fact span{color:#e6e7e9;font-size:.92rem}
+
+    /* GALLERY */
+    .gallery{background:var(--bg2)}
+    .gallery-grid{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:16px
+    }
+    .gallery-card{
+      position:relative;min-height:260px;border-radius:18px;overflow:hidden;
+      border:1px solid rgba(255,255,255,.08)
+    }
+    .gallery-card img{width:100%;height:100%;object-fit:cover;transition:.5s}
+    .gallery-card:hover img{transform:scale(1.07)}
+    .gallery-card .overlay{
+      position:absolute;inset:auto 0 0;padding:45px 18px 16px;
+      background:linear-gradient(transparent,rgba(0,0,0,.9))
+    }
+    .overlay b{font-size:1rem}
+    .overlay small{display:block;color:#c4c9cf}
+
+    /* SK */
+    .fashion{
+      display:grid;grid-template-columns:1fr 1fr;gap:30px;
+      align-items:stretch
+    }
+    .fashion-card{
+      padding:40px;border-radius:25px;
+      border:1px solid var(--line);
+      background:linear-gradient(145deg,rgba(216,180,90,.1),rgba(255,255,255,.025));
+    }
+    .fashion-card h3{font-size:2.2rem;margin:10px 0}
+    .fashion-card p{color:var(--muted)}
+    .fashion-image{
+      border-radius:25px;min-height:360px;
+      background:url("https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1000&q=85")
+      center/cover;border:1px solid var(--line)
+    }
+
+    /* SKILLS */
+    .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+    .skill{
+      padding:25px;border:1px solid rgba(255,255,255,.08);
+      border-radius:18px;background:var(--card)
+    }
+    .skill .icon{font-size:1.7rem;margin-bottom:12px}
+    .skill h3{font-size:1rem;margin-bottom:7px}
+    .skill p{color:var(--muted);font-size:.88rem}
+
+    .journey{
+      margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);
+      gap:15px
+    }
+    .stat{
+      padding:25px;border-radius:18px;border:1px solid var(--line);
+      text-align:center
+    }
+    .stat strong{font-size:2rem;color:var(--gold)}
+    .stat span{display:block;color:var(--muted);font-size:.9rem}
+
+    /* CONTACT */
+    .contact{
+      background:linear-gradient(180deg,var(--bg2),var(--bg))
+    }
+    .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:35px}
+    .contact-box,.contact-form{
+      padding:30px;border:1px solid rgba(255,255,255,.08);
+      border-radius:22px;background:var(--card)
+    }
+    .contact-item{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+    .contact-item:last-child{border-bottom:0}
+    .contact-item b{display:block;color:var(--gold);font-size:.8rem;text-transform:uppercase}
+    .contact-item span{color:#ddd}
+    .field{margin-bottom:14px}
+    .field label{display:block;color:#bbb;font-size:.85rem;margin-bottom:6px}
+    input,textarea{
+      width:100%;padding:13px 14px;border-radius:12px;
+      border:1px solid rgba(255,255,255,.1);outline:none;
+      background:#0a0e13;color:#fff;font:inherit
+    }
+    input:focus,textarea:focus{border-color:var(--gold)}
+    textarea{min-height:130px;resize:vertical}
+
+    footer{
+      padding:35px 0;border-top:1px solid rgba(255,255,255,.07);
+      color:#9299a2;text-align:center;font-size:.85rem
+    }
+    footer b{color:var(--gold)}
+
+    /* MOBILE */
+    @media(max-width:800px){
+      .nav-links{
+        display:none;position:absolute;top:72px;left:0;right:0;
+        background:#090d12;padding:20px;flex-direction:column;
+        border-bottom:1px solid var(--line)
+      }
+      .nav-links.open{display:flex}
+      .menu{display:block}
+      .hero-grid,.about-grid,.fashion,.contact-grid{grid-template-columns:1fr}
+      .hero{padding-top:110px}
+      .hero-photo{min-height:430px;order:-1}
+      .gallery-grid{grid-template-columns:repeat(2,1fr)}
+      .skills-grid{grid-template-columns:repeat(2,1fr)}
+      .journey{grid-template-columns:1fr}
+      section{padding:75px 0}
+      h1{letter-spacing:-2px}
+    }
+
+    @media(max-width:480px){
+      .gallery-grid{grid-template-columns:1fr}
+      .skills-grid{grid-template-columns:1fr}
+      .facts{grid-template-columns:1fr}
+      .hero-photo{min-height:360px}
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="#home">S<span>S</span> • Swapnil Sabbir</a>
+      <button class="menu" id="menuBtn" aria-label="Open menu">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#fashion">Sabbir's Gallary</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Creator • Photographer • Editor</div>
+        <h1>Hi, I'm <span>Swapnil Sabbir</span></h1>
+        <p>
+          Welcome to my personal space. I create, capture and edit moments
+          while exploring creativity, photography, fashion and new ideas.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="btn primary" href="#gallery">View My Work</a>
+          <a class="btn" href="#contact">Contact Me</a>
+        </div>
+
+        <!-- Replace these # links with your real social profile URLs -->
+        <div class="socials">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="YouTube">▶</a>
+          <a href="#" aria-label="TikTok">♪</a>
+        </div>
+      </div>
+
+      <div class="hero-photo">
+        <div class="photo-label">
+          <strong>Creator. Photographer. Editor.</strong>
+          <small>Creating memories, one frame at a time.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container about-grid">
+      <div class="about-img"></div>
+
+      <div class="about-copy">
+        <div class="kicker">01 • About Me</div>
+        <h2>A little bit about me.</h2>
+        <div class="gold-line"></div>
+        <p>
+          I'm Swapnil Sabbir, a creator who enjoys photography, editing,
+          technology and discovering new creative ideas.
+        </p>
+        <p>
+          This website is my digital home — a place to share my work,
+          favorite moments, projects and journey.
+        </p>
+
+        <div class="facts">
+          <div class="fact"><b>Role</b><span>Creator / Photographer / Editor</span></div>
+          <div class="fact"><b>Focus</b><span>Photography & Creative Work</span></div>
+          <div class="fact"><b>Project</b><span>Personal Portfolio</span></div>
+          <div class="fact"><b>Business</b><span>SK Fashion Gallery</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">02 • Photography</div>
+        <h2>Sabbir's Photography Gallery</h2>
+        <div class="gold-line"></div>
+        <p>Some moments, frames and stories. Replace these demo photos with your own photographs.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85" alt="Nature">
+          <div class="overlay"><b>Nature</b><small>Landscape & outdoor</small></div>
+        </div>
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=900&q=85" alt="Flower">
+          <div class="overlay"><b>Macro</b><small>Details & colors</small></div>
+        </div>
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=900&q=85" alt="City">
+          <div class="overlay"><b>Urban</b><small>City frames</small></div>
+        </div>
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=85" alt="Portrait">
+          <div class="overlay"><b>Portrait</b><small>People & stories</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fashion">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">03 • Creative Project</div>
+        <h2>Sabbir's Gallary</h2>
+        <div class="gold-line"></div>
+        <p>A dedicated space for one of my creative projects and visual collections.</p>
+      </div>
+
+      <div class="fashion">
+        <div class="fashion-card">
+          <div class="kicker">Featured Project</div>
+          <h3>SK Fashion Gallery</h3>
+          <p>
+            Ladies & baby clothing focused creative project. Add your store
+            story, products, campaign photos and social links here.
+          </p>
+          <div class="hero-buttons">
+            <a class="btn primary" href="#contact">Get In Touch</a>
+          </div>
+        </div>
+        <div class="fashion-image"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">04 • Skills & Journey</div>
+        <h2>What I Love To Do</h2>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill"><div class="icon">📷</div><h3>Photography</h3><p>Portrait, nature, lifestyle and creative frames.</p></div>
+        <div class="skill"><div class="icon">🎬</div><h3>Video Editing</h3><p>Short-form videos, reels and visual storytelling.</p></div>
+        <div class="skill"><div class="icon">✦</div><h3>Photo Editing</h3><p>Color, composition and creative enhancements.</p></div>
+        <div class="skill"><div class="icon">💡</div><h3>Creative Ideas</h3><p>Turning simple ideas into visual experiences.</p></div>
+      </div>
+
+      <div class="journey">
+        <div class="stat"><strong>01</strong><span>Personal Brand</span></div>
+        <div class="stat"><strong>∞</strong><span>Ideas to Explore</span></div>
+        <div class="stat"><strong>24/7</strong><span>Keep Creating</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">05 • Contact</div>
+        <h2>Let's Connect</h2>
+        <div class="gold-line"></div>
+        <p>Replace the demo contact details below with your real information.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-box">
+          <div class="contact-item"><b>Email</b><span>your@email.com</span></div>
+          <div class="contact-item"><b>Phone</b><span>Your phone number</span></div>
+          <div class="contact-item"><b>Location</b><span>Bangladesh</span></div>
+          <div class="contact-item"><b>Social</b><span>Facebook • Instagram • YouTube</span></div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <div class="field">
+            <label for="name">Your Name</label>
+            <input id="name" type="text" placeholder="Enter your name" required>
+          </div>
+          <div class="field">
+            <label for="email">Your Email</label>
+            <input id="email" type="email" placeholder="Enter your email" required>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Write your message..." required></textarea>
+          </div>
+          <button class="btn primary" type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> <b>Swapnil Sabbir</b> — Personal Portfolio. All rights reserved.
+</footer>
+
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const navLinks = document.getElementById("navLinks");
+
+  menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+  });
+
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => navLinks.classList.remove("open"));
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Demo contact form: opens the user's email app.
+  document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    const subject = encodeURIComponent("Message from personal website");
+    const body = encodeURIComponent(
+      "Name: " + name + "\nEmail: " + email + "\n\n" + message
+    );
+
+    // CHANGE THIS EMAIL ADDRESS:
+    window.location.href = `mailto:your@email.com?subject=${subject}&body=${body}`;
+  });
+</script>
+</body>
+</html>
